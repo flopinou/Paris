@@ -10,7 +10,7 @@ Subway Builder mod that adds a map of Paris and its suburbs.
 
 - In Subway Builder, go to Settings > Mod Manager and click on "Open Mods Folder".
 - Unzip (extract) the archive into the folder that opened.
-    - *Note: The folder named `Paris` must be directly inside your `mods` folder. If you have a folder named `Paris_2.0.0` instead, open it, copy the `Paris` folder inside, and paste it directly into the `mods` folder.*
+    - *Note: The ZIP file contains the files directly (without a root folder), so make sure you extract them into a folder named `Paris` inside your `mods` folder (often done by default by extraction software).*
 - Run `run_windows.bat` or `run_mac-linux.sh` (depending on your OS):
     - **On Windows:** Simply double-click on `run_windows.bat`.
     - **On macOS:** Open a Terminal, type `sh ` (with a space), drag and drop the `run_mac-linux.sh` file into the terminal window, and press Enter.
@@ -31,7 +31,7 @@ Un mod pour Subway Builder qui rajoute une carte de Paris et une partie de sa ba
 
 - Dans Subway Builder, allez dans Paramètres > Mod Manager et cliquez sur "Open Mods Folder".
 - Décompressez le fichier ZIP dans le dossier `mods` qui vient de s'ouvrir.
-    - *Note : Le dossier nommé `Paris` doit se trouver directement dans votre dossier `mods`. Si vous avez un dossier nommé `Paris_2.0.0` à la place, ouvrez-le, copiez le dossier `Paris` qui se trouve à l'intérieur et collez-le directement dans le dossier `mods`.*
+    - *Note : Comme le fichier ZIP contient directement les fichiers (sans dossier racine), assurez-vous de bien les extraire dans un dossier nommé `Paris` à l'intérieur de `mods` (souvent fait par défaut par les logiciels d'extraction).*
 - Lancez `run_windows.bat` ou `run_mac-linux.sh` (selon votre système) :
     - **Sur Windows :** Double-cliquez simplement sur `run_windows.bat`.
     - **Sur macOS :** Ouvrez un Terminal, écrivez `sh ` (avec un espace), glissez-déposez le fichier `run_mac-linux.sh` dans la fenêtre du terminal, puis appuyez sur Entrée.
