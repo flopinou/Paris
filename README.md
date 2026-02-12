@@ -18,8 +18,6 @@ Subway Builder mod that adds a map of Paris and its suburbs.
 
 > **:warning: Important:** You must run the script (`.bat` or `.sh`) every time you want to play the Paris map **before** launching the game (feel free to create a desktop shortcut for easier access!). Make sure the terminal window remains open in the background. You also need to press **Ctrl + Shift + R** on the main menu every time you launch the game.
 
-*Note: The script will automatically offer to update the mod to the latest version if a new one is available.*
-
 ---
 
 ## 🇫🇷 Français
@@ -40,5 +38,3 @@ Un mod pour Subway Builder qui rajoute une carte de Paris et une partie de sa ba
 - Cliquez sur Nouvelle partie : la carte se trouve dans l'onglet **France** (ou **Modded**).
 
 > **:warning: Important :** Vous devez lancer le script (`.bat` ou `.sh`) avant chaque session de jeu pour jouer sur la carte de Paris (n'hésitez pas à créer un raccourci du script sur votre bureau !). Assurez-vous que la fenêtre du terminal reste bien ouverte en arrière-plan. Vous devez également refaire la combinaison **Ctrl + Shift + R** sur le menu principal à chaque lancement du jeu.
-
-*Note : Le script vous proposera automatiquement de mettre à jour le mod vers la dernière version si une nouvelle est disponible.*

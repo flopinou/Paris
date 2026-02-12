@@ -1,101 +1,55 @@
 @echo off
 cd /d "%~dp0"
 
-REM --- AUTO-UPDATE ---
-echo [Paris Mod] Checking for updates...
-
-set "LOCAL_VERSION="
-for /f "tokens=2 delims=:," %%a in ('findstr /c:"\"version\"" manifest.json') do set "LOCAL_VERSION=%%~a"
-for /f "tokens=* delims= " %%a in ("%LOCAL_VERSION%") do set "LOCAL_VERSION=%%a"
-
-if "%LOCAL_VERSION%"=="" goto :START_MOD
-
-where curl >nul 2>nul
-if %errorlevel% neq 0 goto :START_MOD
-
-curl -s -H "User-Agent: ParisModUpdater" https://api.github.com/repos/flopinou/paris-sb/releases/latest > release_info.json
-
-set "REMOTE_VERSION="
-for /f "tokens=2 delims=:," %%a in ('findstr /c:"\"tag_name\"" release_info.json') do set "REMOTE_VERSION=%%~a"
-for /f "tokens=* delims= \"" %%a in ("%REMOTE_VERSION%") do set "REMOTE_VERSION=%%a"
-del release_info.json
-
-if "%REMOTE_VERSION%"=="" goto :START_MOD
-
-if "%LOCAL_VERSION%" == "%REMOTE_VERSION%" goto :START_MOD
-
-echo.
-echo [Paris Mod] NEW VERSION AVAILABLE: %REMOTE_VERSION% (Current: %LOCAL_VERSION%)
-echo.
-set /p "CHOICE=Do you want to update now? (y/n): "
-if /i not "%CHOICE%"=="y" goto :START_MOD
-
-echo [Paris Mod] Downloading update...
-set "DOWNLOAD_URL=https://github.com/flopinou/paris-sb/releases/download/%REMOTE_VERSION%/Paris.zip"
-
-curl -L -o update.zip "%DOWNLOAD_URL%"
-if %errorlevel% neq 0 goto :START_MOD
-
-where tar >nul 2>nul
-if %errorlevel% neq 0 (
-    echo [Paris Mod] Error: 'tar' not found.
-    goto :START_MOD
-)
-
-if exist "update_temp" rmdir /s /q "update_temp"
-mkdir "update_temp"
-tar -xf update.zip -C "update_temp"
-
-cd update_temp
-for /d %%D in (*) do set "EXTRACTED_DIR=%%D"
-cd ..
-
-if exist "update_temp\%EXTRACTED_DIR%\Paris" (
-    xcopy /E /Y "update_temp\%EXTRACTED_DIR%\Paris\*" .
-) else (
-    xcopy /E /Y "update_temp\%EXTRACTED_DIR%\*" .
-)
-
-rmdir /s /q "update_temp"
-del update.zip
-echo [Paris Mod] Update complete!
-pause
-exit /b 0
-
-:START_MOD
-REM --- DATA COPY ---
+REM Copy data files to cities\data\PAR
 set "TARGET=%~dp0..\..\cities\data\PAR"
+echo [Paris Mod] Copying data files to cities\data\PAR...
 if not exist "%TARGET%" mkdir "%TARGET%"
 xcopy /E /Y "%~dp0data\PAR\*" "%TARGET%\" >nul
+echo [Paris Mod] Data files copied successfully.
 
-REM --- PMTILES CHECK ---
+REM Check pmtiles exe
 if not exist "pmtiles.exe" (
-    echo [Paris Mod] 'pmtiles.exe' not found. Downloading latest...
+    echo [Paris Mod] 'pmtiles.exe' not found. Checking for download tools...
 
+    REM Check curl 
     where curl >nul 2>nul
-    if %errorlevel% neq 0 exit /b 1
+    if %errorlevel% neq 0 (
+        echo [Paris Mod] Error: 'curl' tool not found.
+        echo Please manually download pmtiles.exe from:
+        echo https://github.com/protomaps/go-pmtiles/releases
+        pause
+        exit /b 1
+    )
 
-    curl -s -H "User-Agent: ParisModUpdater" https://api.github.com/repos/protomaps/go-pmtiles/releases/latest > pmtiles_release.json
-    
-    set "PMTILES_TAG="
-    for /f "tokens=2 delims=:," %%a in ('findstr /c:"\"tag_name\"" pmtiles_release.json') do set "PMTILES_TAG=%%~a"
-    for /f "tokens=* delims= \"" %%a in ("%PMTILES_TAG%") do set "PMTILES_TAG=%%a"
-    del pmtiles_release.json
+    echo [Paris Mod] Downloading pmtiles.exe...
+    curl -L -o pmtiles.zip "https://github.com/protomaps/go-pmtiles/releases/download/v1.30.0/go-pmtiles_1.30.0_Windows_x86_64.zip"
 
-    if "%PMTILES_TAG%"=="" exit /b 1
-
-    set "PMTILES_VER=%PMTILES_TAG:v=%"
-    curl -L -o pmtiles.zip "https://github.com/protomaps/go-pmtiles/releases/download/%PMTILES_TAG%/go-pmtiles_%PMTILES_VER%_Windows_x86_64.zip"
-
+    REM Check tar
     where tar >nul 2>nul
-    if %errorlevel% neq 0 exit /b 1
+    if %errorlevel% neq 0 (
+        echo [Paris Mod] Error: 'tar' extraction tool not found.
+        echo Please manually extract pmtiles.zip.
+        pause
+        exit /b 1
+    )
 
-    tar -xf pmtiles.zip
+    echo [Paris Mod] Extracting pmtiles.exe...
+    tar -xf pmtiles.zip pmtiles.exe
+    
+    REM Clean up zip
     if exist "pmtiles.zip" del "pmtiles.zip"
 
-    if not exist "pmtiles.exe" exit /b 1
+    REM Verify extraction
+    if not exist "pmtiles.exe" (
+        echo [Paris Mod] Error: Extraction failed or pmtiles.exe not found.
+        pause
+        exit /b 1
+    )
+    
+    echo [Paris Mod] pmtiles.exe installed successfully.
 )
 
-REM --- START SERVER ---
+REM Start tile server
 echo [Paris Mod] Starting tile server on port 8080...
 pmtiles.exe serve . --port 8080 --cors=*
