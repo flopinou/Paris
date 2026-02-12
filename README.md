@@ -13,8 +13,7 @@ Subway Builder mod that adds a map of Paris and its suburbs.
     - *Note: The ZIP file contains the files directly (without a root folder), so make sure you extract them into a folder named `Paris` inside your `mods` folder (often done by default by extraction software).*
 - Run `run_windows.bat` or `run_mac-linux.sh` (depending on your OS):
     - **On Windows:** Simply double-click on `run_windows.bat`.
-    - **On macOS:** Open a Terminal, type `sh ` (with a space), drag and drop the `run_mac-linux.sh` file into the terminal window, and press Enter.
-    - **On Linux:** Open a terminal in the folder and type `sh run_mac-linux.sh`, then press Enter.
+    - **On macOS and Linux:** Open a Terminal, type `sh ` (with a space), drag and drop the `run_mac-linux.sh` file into the terminal window, and press Enter.
 - Enable the mod inside Subway Builder, then restart the game.
 - Press **Ctrl + Shift + R** (Cmd + Option + R on Mac) on the main menu to load the mods.
 - Click on New Game: you will find the map in the **France** (or **Modded**) tab.
@@ -34,8 +33,7 @@ Un mod pour Subway Builder qui rajoute une carte de Paris et une partie de sa ba
     - *Note : Comme le fichier ZIP contient directement les fichiers (sans dossier racine), assurez-vous de bien les extraire dans un dossier nommé `Paris` à l'intérieur de `mods` (souvent fait par défaut par les logiciels d'extraction).*
 - Lancez `run_windows.bat` ou `run_mac-linux.sh` (selon votre système) :
     - **Sur Windows :** Double-cliquez simplement sur `run_windows.bat`.
-    - **Sur macOS :** Ouvrez un Terminal, écrivez `sh ` (avec un espace), glissez-déposez le fichier `run_mac-linux.sh` dans la fenêtre du terminal, puis appuyez sur Entrée.
-    - **Sur Linux :** Ouvrez un terminal dans le dossier et tapez `sh run_mac-linux.sh`, puis appuyez sur Entrée.
+    - **Sur macOS et Linux :** Ouvrez un Terminal, écrivez `sh ` (avec un espace), glissez-déposez le fichier `run_mac-linux.sh` dans la fenêtre du terminal, puis appuyez sur Entrée.
 - Activez le mod dans le jeu, puis redémarrez Subway Builder.
 - Sur le menu principal, faites **Ctrl + Shift + R** (Cmd + Option + R sur Mac) pour charger les mods.
 - Cliquez sur Nouvelle partie : la carte se trouve dans l'onglet **France** (ou **Modded**).
