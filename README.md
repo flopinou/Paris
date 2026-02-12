@@ -1,5 +1,7 @@
 # Paris Mod for Subway Builder
 
+[🇬🇧 English](#-english) | [🇫🇷 Français](#-français)
+
 ## 🇬🇧 English
 
 Subway Builder mod that adds a map of Paris and its suburbs.
@@ -8,6 +10,7 @@ Subway Builder mod that adds a map of Paris and its suburbs.
 
 - In Subway Builder, go to Settings > Mod Manager and click on "Open Mods Folder".
 - Unzip (extract) the archive into the folder that opened.
+    - *Note: The folder named `Paris` must be directly inside your `mods` folder. If you have a folder named `Paris_2.0.0` instead, open it, copy the `Paris` folder inside, and paste it directly into the `mods` folder.*
 - Run `run_windows.bat` or `run_mac-linux.sh` (depending on your OS):
     - **On Windows:** Simply double-click on `run_windows.bat`.
     - **On macOS:** Open a Terminal, type `sh ` (with a space), drag and drop the `run_mac-linux.sh` file into the terminal window, and press Enter.
