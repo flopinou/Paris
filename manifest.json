@@ -1,0 +1,10 @@
+{
+    "id": "com.flopinou.paris",
+    "name": "Paris",
+    "description": "A map of Paris and its surrounding suburbs.",
+    "version": "2.0.0",
+    "author": {
+        "name": "Flopinou"
+    },
+    "main": "index.js"
+}
