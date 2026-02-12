@@ -1,6 +1,6 @@
 # Paris Mod for Subway Builder
 
-## :flag_gb: English
+## 🇬🇧 English
 
 Subway Builder mod that adds a map of Paris and its suburbs.
 
@@ -22,7 +22,7 @@ Subway Builder mod that adds a map of Paris and its suburbs.
 
 ---
 
-## :flag_fr: Français
+## 🇫🇷 Français
 
 Un mod pour Subway Builder qui rajoute une carte de Paris et une partie de sa banlieue au jeu.
 
