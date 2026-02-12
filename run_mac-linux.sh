@@ -17,12 +17,12 @@ if [ ! -f "$SCRIPT_DIR/pmtiles" ]; then
     
     if [ "$OS" = "Darwin" ]; then
         if [ "$ARCH" = "arm64" ]; then
-            URL="https://github.com/protomaps/go-pmtiles/releases/download/v${VERSION}/go-pmtiles_${VERSION}_Darwin_arm64.zip"
+            URL="https://github.com/protomaps/go-pmtiles/releases/download/v${VERSION}/go-pmtiles-${VERSION}_Darwin_arm64.zip"
         else
-            URL="https://github.com/protomaps/go-pmtiles/releases/download/v${VERSION}/go-pmtiles_${VERSION}_Darwin_x86_64.zip"
+            URL="https://github.com/protomaps/go-pmtiles/releases/download/v${VERSION}/go-pmtiles-${VERSION}_Darwin_x86_64.zip"
         fi
         echo "Downloading from $URL..."
-        curl -L -o "$SCRIPT_DIR/pmtiles.zip" "$URL"
+        curl -L -f -o "$SCRIPT_DIR/pmtiles.zip" "$URL"
         unzip -j -o "$SCRIPT_DIR/pmtiles.zip" "pmtiles" -d "$SCRIPT_DIR"
         rm "$SCRIPT_DIR/pmtiles.zip"
         
